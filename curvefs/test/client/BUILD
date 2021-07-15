@@ -21,10 +21,10 @@ load(
 )
 
 cc_binary(
-    name = "fuse_client_test",
+    name = "client_s3_test",
     srcs = glob([
-        "*.cpp",
-        "*.c",
+        "main.cpp",
+        "client_s3_adaptor_test.cpp",
         "*.h",
     ]),
     copts = ["-I/usr/local/include/fuse3",
@@ -32,9 +32,11 @@ cc_binary(
     deps = [
         "//external:gtest",
         "//curvefs/src/client:fuse_client_lib",
+        "//curvefs/proto:metaserver_cc_proto",
+        "//curvefs/proto:mds_cc_proto",
+        "//curvefs/proto:space_cc_proto",
     ],
-    linkopts = ["-lfuse3",
-                "-lpthread",
+    linkopts = ["-lpthread",
                 "-L/usr/local/lib/x86_64-linux-gnu"],
     visibility = ["//visibility:public"],
 )

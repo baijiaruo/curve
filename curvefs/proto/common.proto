@@ -37,5 +37,5 @@ message S3Info {
     required string endpoint = 3;
     required string bucketname = 4;
     required uint64 blockSize = 5;
-    required uint64 chunkSize = 6;
+    required uint64 chunkSize = 6;   
 }
